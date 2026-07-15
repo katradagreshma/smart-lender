@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Loan Prediction Result</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="result-page">
+
+    <div class="result-card">
+
+        <h1>🏦 Smart Lender</h1>
+
+        <p class="subtitle">
+
+            AI Loan Approval Prediction Result
+
+        </p>
+
+        {% if prediction == "Loan Approved ✅" %}
+
+        <div class="status-icon approved-circle">
+
+            ✔
+
+        </div>
+
+        <div class="status approved-text">
+
+            Loan Approved
+
+        </div>
+
+        <div class="risk-badge low-risk">
+
+            LOW RISK APPLICANT
+
+        </div>
+
+        <div class="progress-section">
+
+            <div class="progress-title">
+
+                Prediction Confidence
+
+            </div>
+
+            <div class="progress-bar">
+
+                <div class="progress-fill approved-fill"></div>
+
+            </div>
+
+            <span>92%</span>
+
+        </div>
+
+        <div class="message">
+
+            Congratulations! 🎉
+
+            <br><br>
+
+            Based on the applicant's income,
+            credit history, loan amount,
+            and other financial factors,
+
+            <br><br>
+
+            <b>The Machine Learning model predicts that
+            the loan is likely to be approved.</b>
+
+        </div>
+
+        {% elif prediction == "Loan Rejected ❌" %}
+
+        <div class="status-icon rejected-circle">
+
+            ✖
+
+        </div>
+
+        <div class="status rejected-text">
+
+            Loan Rejected
+
+        </div>
+
+        <div class="risk-badge high-risk">
+
+            HIGH RISK APPLICANT
+
+        </div>
+
+        <div class="progress-section">
+
+            <div class="progress-title">
+
+                Prediction Confidence
+
+            </div>
+
+            <div class="progress-bar">
+
+                <div class="progress-fill rejected-fill"></div>
+
+            </div>
+
+            <span>84%</span>
+
+        </div>
+
+        <div class="message">
+
+            Unfortunately,
+
+            <br><br>
+
+            Based on the applicant's
+            financial information,
+
+            <br><br>
+
+            <b>The Machine Learning model predicts that
+            the loan is unlikely to be approved.</b>
+
+        </div>
+
+        {% else %}
+
+        <h2>
+
+            {{ prediction }}
+
+        </h2>
+
+        {% endif %}
+
+        <div class="button-group">
+
+            <a href="/predict_page">
+
+                <button class="btn">
+
+                    Predict Another Loan
+
+                </button>
+
+            </a>
+
+            <a href="/">
+
+                <button class="btn secondary-btn">
+
+                    Back Home
+
+                </button>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
